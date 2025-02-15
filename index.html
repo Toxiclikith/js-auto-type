@@ -29,6 +29,10 @@
       margin-bottom: 20px;
       border-radius: 4px;
     }
+    #commandLink {
+      margin-top: 20px;
+      font-size: 16px;
+    }
     #start-btn {
       padding: 10px 20px;
       background-color: #007acc;
@@ -51,6 +55,7 @@
   <h1>Voice Activated Code Assistant</h1>
   <div id="status">Click the button and allow microphone access to start listening.</div>
   <div id="transcript"></div>
+  <div id="commandLink"></div>
   <button id="start-btn">Start Listening</button>
   <p class="instructions">
     Try saying commands like "open file index.js", "go to line 100", or "insert snippet console.log('Hello World');"
@@ -60,6 +65,7 @@
     // Use the Web Speech API to capture voice commands.
     const statusDiv = document.getElementById('status');
     const transcriptDiv = document.getElementById('transcript');
+    const commandLinkDiv = document.getElementById('commandLink');
     const startBtn = document.getElementById('start-btn');
 
     let recognition;
@@ -79,6 +85,7 @@
       recognition.onstart = function() {
         statusDiv.textContent = "Listening... Please speak your command.";
         transcriptDiv.textContent = "";
+        commandLinkDiv.innerHTML = "";
       };
 
       recognition.onerror = function(event) {
@@ -92,7 +99,11 @@
       recognition.onresult = function(event) {
         const transcript = event.results[0][0].transcript;
         transcriptDiv.textContent = transcript;
-        // You might add additional processing here.
+        // Create a VS Code command URI with the recognized command as an argument.
+        const args = encodeURIComponent(JSON.stringify([transcript]));
+        const commandUri = "vscode://command/voiceAssistant.processCommand?args=" + args;
+        // Display a clickable link for the user.
+        commandLinkDiv.innerHTML = `<a href="${commandUri}" style="color:#007acc; text-decoration: underline;">Click here to run this command in VS Code</a>`;
       };
 
       startBtn.addEventListener('click', function() {
