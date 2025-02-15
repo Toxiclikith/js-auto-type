@@ -210,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "close bracket": "]",
       "open parenthesis": "(",
       "close parenthesis": ")",
+      "semicolon": ";",
       "semi colon": ";",
       "colon": ":",
       "comma": ",",
@@ -265,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   Insertion Examples:
     • "var x equals 10" → inserts: var x = 10
-    • "console dot log open parenthesis double quote Hello World double quote close parenthesis semi colon"
+    • "console dot log open parenthesis double quote Hello World double quote close parenthesis semicolon"
       → inserts: console.log("Hello World");
   
   Cursor Movement:
