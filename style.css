@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  @media (max-width: 600px) {
+    body {
+      padding: 10px;
+    }
+    
+    .controls button {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .controls {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .controls button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .controls button:hover {
+    background-color: #005a9e;
+  }
+  
+  #status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  .preview {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #282c34;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    white-space: pre;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+  }
+  
+  .code-line {
+    display: block;
+  }
+  
+  .line-number {
+    display: inline-block;
+    width: 30px;
+    text-align: right;
+    margin-right: 10px;
+    color: #888;
+  }
+  
+  .cursor {
+    display: inline-block;
+    width: 1ch;
+    background-color: #fff;
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    50% {
+      background-color: transparent;
+    }
+  }
+  
+  .modal {
+    display: none;
+    position: fixed; 
+    z-index: 10; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.7);
+  }
+  
+  .modal-content {
+    background-color: #1e1e1e;
+    margin: 10% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+  }
+  
+  .modal-content h3 {
+    margin-top: 0;
+  }
+  
+  #edit-textarea {
+    width: 100%;
+    height: 300px;
+    background-color: #282c34;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    resize: vertical;
+  }
+  
+  .modal-buttons {
+    text-align: right;
+    margin-top: 10px;
+  }
+  
+  .modal-buttons button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+    
+  footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #aaa;
+  }
+  
+  footer a {
+    color: #007acc;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  

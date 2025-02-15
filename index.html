@@ -1,119 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <!-- For GitHub Pages, this page will be served over HTTPS -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voice Activated Code Assistant</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #1e1e1e;
-      color: #fff;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-    #status {
-      margin-bottom: 20px;
-      font-size: 16px;
-    }
-    #transcript {
-      border: 1px solid #555;
-      padding: 10px;
-      background: #222;
-      min-height: 50px;
-      margin-bottom: 20px;
-      border-radius: 4px;
-    }
-    #commandLink {
-      margin-top: 20px;
-      font-size: 16px;
-    }
-    #start-btn {
-      padding: 10px 20px;
-      background-color: #007acc;
-      border: none;
-      color: #fff;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    #start-btn:hover {
-      background-color: #005a9e;
-    }
-    p.instructions {
-      font-size: 14px;
-      color: #aaa;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Voice AutoType</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
 </head>
 <body>
-  <h1>Voice Activated Code Assistant</h1>
-  <div id="status">Click the button and allow microphone access to start listening.</div>
-  <div id="transcript"></div>
-  <div id="commandLink"></div>
-  <button id="start-btn">Start Listening</button>
-  <p class="instructions">
-    Try saying commands like "open file index.js", "go to line 100", or "insert snippet console.log('Hello World');"
-  </p>
+  <header>
+    <h1>JavaScript Voice AutoType</h1>
+  </header>
+  <main>
+    <div class="controls">
+      <button id="start-btn">Start Listening</button>
+      <button id="stop-btn">Stop Listening</button>
+      <button id="help-btn">Help</button>
+      <button id="edit-btn">Edit Code</button>
+      <button id="copy-btn">Copy Code</button>
+      <div id="status">Press "Start Listening" to begin.</div>
+    </div>
+    <section class="preview">
+      <h2>Code Preview</h2>
+      <div id="code-preview"></div>
+    </section>
+  </main>
   
-  <script>
-    // Use the Web Speech API to capture voice commands.
-    const statusDiv = document.getElementById('status');
-    const transcriptDiv = document.getElementById('transcript');
-    const commandLinkDiv = document.getElementById('commandLink');
-    const startBtn = document.getElementById('start-btn');
-
-    let recognition;
-    if ('webkitSpeechRecognition' in window) {
-      recognition = new webkitSpeechRecognition();
-    } else if ('SpeechRecognition' in window) {
-      recognition = new SpeechRecognition();
-    } else {
-      statusDiv.textContent = "Sorry, your browser does not support Speech Recognition.";
-    }
-    
-    if (recognition) {
-      recognition.continuous = false;
-      recognition.interimResults = false;
-      recognition.lang = 'en-US';
-
-      recognition.onstart = function() {
-        statusDiv.textContent = "Listening... Please speak your command.";
-        transcriptDiv.textContent = "";
-        commandLinkDiv.innerHTML = "";
-      };
-
-      recognition.onerror = function(event) {
-        statusDiv.textContent = "Error: " + event.error;
-      };
-
-      recognition.onend = function() {
-        statusDiv.textContent = "Not listening. Click 'Start Listening' to try again.";
-      };
-
-      recognition.onresult = function(event) {
-        const transcript = event.results[0][0].transcript;
-        transcriptDiv.textContent = transcript;
-        // Create a VS Code command URI with the recognized command as an argument.
-        const args = encodeURIComponent(JSON.stringify([transcript]));
-        const commandUri = "vscode://command/voiceAssistant.processCommand?args=" + args;
-        // Display a clickable link for the user.
-        commandLinkDiv.innerHTML = `<a href="${commandUri}" style="color:#007acc; text-decoration: underline;">Click here to run this command in VS Code</a>`;
-      };
-
-      startBtn.addEventListener('click', function() {
-        try {
-          recognition.start();
-        } catch (e) {
-          statusDiv.textContent = "Error starting speech recognition. Please try again.";
-        }
-      });
-    }
-  </script>
+  <div id="edit-modal" class="modal">
+    <div class="modal-content">
+      <h3>Edit Code</h3>
+      <textarea id="edit-textarea"></textarea>
+      <div class="modal-buttons">
+        <button id="save-btn">Save</button>
+        <button id="cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>Developed by <a href="https://github.com/Toxiclikith" target="_blank">Toxiclikith</a> ❤ | Portfolio: <a href="https://toxiclikith.github.io/portfolio/" target="_blank">portfolio</a> | © by Toxiclikith</p>
+  </footer>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
