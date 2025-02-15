@@ -35,7 +35,3 @@ This free web application uses the Web Speech API to capture voice commands and 
 Developed by [Toxiclikith](https://github.com/Toxiclikith)  
 Portfolio: [toxiclikith.github.io/portfolio/](https://toxiclikith.github.io/portfolio/)  
 Licensed by Toxiclikith
-
-## Hosting
-
-Host this application for free on GitHub Pages by pushing the code to a repository and enabling GitHub Pages.
