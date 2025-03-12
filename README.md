@@ -2,6 +2,10 @@
 
 JavaScript Voice AutoType is a free web application that leverages the Web Speech API to transform voice commands into live JavaScript code previews. This tool facilitates hands-free coding by interpreting spoken instructions and rendering them as executable code.
 
+## Live Demo
+
+[Try it here!](https://toxiclikith.github.io/js-auto-type/)
+
 ## Features
 
 - **Continuous Voice Recognition:**  
