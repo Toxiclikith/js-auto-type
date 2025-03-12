@@ -1,37 +1,79 @@
 # JavaScript Voice AutoType
 
-This free web application uses the Web Speech API to capture voice commands and auto-types JavaScript code into a live preview. It features:
+JavaScript Voice AutoType is a free web application that leverages the Web Speech API to transform voice commands into live JavaScript code previews. This tool facilitates hands-free coding by interpreting spoken instructions and rendering them as executable code.
 
-- **Continuous Listening:**  
-  Once microphone permission is granted, the app continuously listens until you click "Stop Listening."
+## Features
 
-- **Voice Command Mapping:**  
-  Special phrases (like "open curly bracket" or "equals") are converted to code symbols, while literal words and numbers remain unchanged.
+- **Continuous Voice Recognition:**  
+  Upon granting microphone access, the application continuously listens for voice commands until "Stop Listening" is clicked.
 
-- **Cursor Control & Line Numbers:**  
-  The code preview displays line numbers and a blinking cursor. You can move the cursor with commands (e.g., "move left," "go to line 3").
+- **Voice Command Interpretation:**  
+  Specific phrases such as "open curly bracket" or "equals" are converted into their corresponding code symbols, while literal words and numbers are transcribed as spoken.
+
+- **Cursor Navigation and Line Numbering:**  
+  The code editor displays line numbers and a blinking cursor. Users can navigate the cursor using commands like "move left" or "go to line 3".
 
 - **Editing Commands:**  
-  • "backspace" removes a single character.  
-  • "delete" removes the last complete word.
+  - "backspace" removes the character preceding the cursor.  
+  - "delete" removes the character following the cursor.  
 
 - **Manual Code Editing:**  
-  Click the "Edit Code" button to open a modal, where you can edit the code directly.
+  The "Edit Code" button opens a modal window, allowing direct text modifications.
 
 - **Additional Features:**  
-  Help instructions, a Copy Code button, and responsive design for both desktop and mobile.
+  The application includes help instructions, a "Copy Code" button, and a responsive design optimized for both desktop and mobile platforms.
 
 ## How to Use
 
-1. Open the application (host on GitHub Pages or locally).
-2. Click **Start Listening** and grant microphone access.
-3. Speak commands (e.g., "var x equals 10", "open curly bracket, new line, close curly bracket").
-4. Use commands like "move left/right/up/down", "go to line 3", "backspace", and "delete" for editing.
-5. Click **Edit Code** to manually modify the code.
-6. Click **Copy Code** to copy the full code.
+1. **Access the Application:**  
+   Open the application by hosting it locally or via GitHub Pages.
+
+2. **Start Voice Recognition:**  
+   Click the **Start Listening** button and grant microphone access when prompted.
+
+3. **Issue Voice Commands:**  
+   Speak your code instructions clearly. For example:
+   - "var x equals 10"
+   - "open curly bracket, new line, close curly bracket"
+
+4. **Navigate and Edit Code:**  
+   Use voice commands to navigate and edit the code:
+   - "move left" or "move right"
+   - "go to line 3"
+   - "backspace"
+   - "delete"
+
+5. **Manual Editing:**  
+   Click the **Edit Code** button to open the code editor modal for direct text input.
+
+6. **Copy the Code:**  
+   Use the **Copy Code** button to copy the generated code to your clipboard.
 
 ## Credits & License
 
-Developed by [Toxiclikith](https://github.com/Toxiclikith)  
-Portfolio: [toxiclikith.github.io/portfolio/](https://toxiclikith.github.io/portfolio/)  
-Licensed by Toxiclikith
+Developed by [Toxiclikith](https://github.com/Toxiclikith)
+
+Portfolio: [toxiclikith.github.io/portfolio/](https://toxiclikith.github.io/portfolio/)
+
+Licensed under the [MIT License](https://opensource.org/licenses/MIT)
+
+## Contributing
+
+Contributions are welcome!
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-branch-name`.
+3. Commit your changes: `git commit -m 'Add new feature'`.
+4. Push to the branch: `git push origin feature-branch-name`.
+5. Open a pull request.
+
+For major changes, please open an issue first to discuss your proposed modifications.
+
+## Support
+
+For support or to report issues, please visit the [GitHub repository](https://github.com/Toxiclikith/js-auto-type) and open an issue.
+
+---
+
+*Note: This application relies on the Web Speech API, which may have varying levels of support across different browsers. For the best experience, use the latest version of a compatible browser.*
+
